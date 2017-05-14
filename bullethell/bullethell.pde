@@ -23,7 +23,7 @@ void draw(){
     }
     index--; 
   }
-  engine.add(new star());
+  //engine.add(new star());
 }
 
 void keyPressed(){

@@ -3,10 +3,11 @@ class Enemy extends GameObject{
   x=Xstart;
   y=Ystart;
   dx=0;
-  dy=1;
+  dy=3;
   hp=10;
   objwidth=50;
   objheight=50;
+  int bullettype=1;
  }
  
  void show(){
@@ -24,7 +25,7 @@ void collisioncheck(){
    int index=0;
    while(index<engine.size()){
      GameObject tempobject = engine.get(index);
-     if(tempobject instanceof Bullet){
+     if(tempobject instanceof playerbullet){
       if(collisiondetect(x,y,objwidth,objheight,tempobject.x,tempobject.y,15,25)){
         hp=hp-1;
         tempobject.hp=0;

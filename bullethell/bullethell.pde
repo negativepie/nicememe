@@ -1,18 +1,27 @@
 ArrayList<GameObject> engine;
 boolean upkey,downkey,leftkey,rightkey,shootkey,bombkey,shiftkey;
 Player reimu;
+PImage background;
+PImage reimusprite;
+float imgx=0;
+float imgy=0;
+
 
 void setup(){
-   size(800,600,FX2D);
+   size(800,600,P2D);
    engine = new ArrayList<GameObject>(10000);
    reimu=new Player();
    engine.add(reimu);
    engine.add(new Enemyfarm());
-   //rectMode(CENTER);
+   background=loadImage("test.png");
+   reimusprite=loadImage("reimu sprite.png");
+   rectMode(CENTER);
 }
 
 void draw(){
-  background(0);
+  background(0,0);
+  image(background,imgx,imgy);
+  image(background,imgx,imgy-600);
   int index=engine.size()-1;
   while(index>=0){
     GameObject obj=engine.get(index);
@@ -21,9 +30,12 @@ void draw(){
     if(obj.dead()){
      engine.remove(index); 
     }
-    index--; 
+    index--;
   }
-  //engine.add(new star());
+  if(imgy==600){
+  imgy=0;  
+  }
+  imgy=imgy+10;
 }
 
 void keyPressed(){

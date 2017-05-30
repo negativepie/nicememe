@@ -14,6 +14,6 @@ abstract class GameObject{
     }
     
     boolean dead(){
-      return false;
+      return hp<=0;
     }
 }

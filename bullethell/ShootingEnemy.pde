@@ -16,7 +16,9 @@ class ShootingEnemy extends Enemy{
    if(y<=height/2){
    x=x+dx;
    y=y+dy;
-   }
    collisioncheck();
+   }
+ 
  }
+ 
 }

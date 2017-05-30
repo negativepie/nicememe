@@ -12,9 +12,11 @@ class Enemyfarm extends GameObject{
  }
  
  void act(){
-   if (frameCount<800){
-   }
-   
+   if(frameCount<200){
+     engine.add(new enemybullet(x,y-3,5,8));
+     engine.add(new enemybullet(x,y,7,8));
+     engine.add(new enemybullet(x,y-3,3,8));
+   }  
    else if(frameCount<1000){
    Leftline(100);
    }
@@ -34,7 +36,14 @@ class Enemyfarm extends GameObject{
   if(frameCount%200==0){
   engine.add(new Enemy(x,y));
   }
- }
+  if(frameCount%20==0){
+  engine.add(new enemybullet(x,y-3,5,8));
+  engine.add(new enemybullet(x,y,7,8));
+  engine.add(new enemybullet(x,y-3,3,8));
+  engine.add(new enemybullet(x,y-3,0,8));
+  engine.add(new enemybullet(x+3,y-3,0,8));
+  }
+  }
  
  void Rightline(float xpos){
  if(frameCount%200==0){

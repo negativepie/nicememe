@@ -1,9 +1,9 @@
 class Enemy extends GameObject{
- Enemy(float Xstart,float Ystart){
+ Enemy(float Xstart,float Ystart, float xvel, float yvel){
   x=Xstart;
   y=Ystart;
-  dx=0;
-  dy=3;
+  dx=xvel;
+  dy=yvel;
   hp=10;
   objwidth=50;
   objheight=50;

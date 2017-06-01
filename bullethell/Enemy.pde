@@ -1,5 +1,5 @@
 class Enemy extends GameObject{
- Enemy(float Xstart,float Ystart, float xvel, float yvel){
+ Enemy(float Xstart,float Ystart, float xvel, float yvel,int behavior){
   x=Xstart;
   y=Ystart;
   dx=xvel;
@@ -8,6 +8,7 @@ class Enemy extends GameObject{
   objwidth=50;
   objheight=50;
   int bullettype=1;
+  mode=behavior;
  }
  
  void show(){
@@ -16,9 +17,21 @@ class Enemy extends GameObject{
  }
  
  void act(){
+  //final int delta=1;
+  //final int gauss=2;
+   if(mode==delta){
    x=x+dx;
    y=y+dy;
    collisioncheck();
+   }
+   if(mode==2){
+     x=x+dx;
+     y=Gauss(300,57,150,x,y);
+   }
+   if(mode==3){
+     x=x+dx;
+     y=sin(x);
+   }
  }
  
 void collisioncheck(){

@@ -1,3 +1,7 @@
+//game is 800x600
+final int delta=1;
+final int gauss=2;
+
 class Enemyfarm extends GameObject{
  Enemyfarm(){
   x=width/2;
@@ -12,54 +16,65 @@ class Enemyfarm extends GameObject{
  }
  
  void act(){
-   if(frameCount<200){
-     engine.add(new enemybullet(x,y-3,5,8));
-     engine.add(new enemybullet(x,y,7,8));
-     engine.add(new enemybullet(x,y-3,3,8));
+   if(frameCount<500){
+     SpawnEnemy(-40,-40,3,0,50,gauss);
+     for(int i=0;i<6;i++){              
+ //      SpawnEnemy(20+80*i,-50,0,15,80,delta);
+     }
+     for(int i=0;i<6;i++){
+ //      SpawnEnemy(650-80*i,-50,0,15,130,delta);
+     }
+     
    }  
    else if(frameCount<1000){
-   Leftline(100);
-   }
-   else if(frameCount<1200){
-   Randompattern(random(60,width-60)); 
+     for(int i=0;i<7;i++){
+//       SpawnEnemy(-80*i,-30*i,10,10,100,delta);
+//       SpawnEnemy(600+80*i,-30*i,-10,10,100,delta);       
+//       SpawnEnemy2(50+70*i,-50,0,20,120,delta);
+//       SpawnEnemy2(650-90*i,-120,0,20,180,delta);
+       }
    }
    else if(frameCount<1500){
-   Rightline(500);
+
    }
-   else if(frameCount<2000){
-   Randomshooter(random(60,width-60));
+   else if(frameCount<1500){
+ for(int i=0;i<4;i++){
+
    }
+  
+   }
+   
+   
+   
  }
+
  
- void Leftline(float xpos){
-  x=xpos;
-  if(frameCount%200==0){
-  engine.add(new Enemy(x,y));
-  }
-  if(frameCount%20==0){
+ void SpawnEnemy(float xpos,float ypos,float xvel,float yvel,float spawntime,int behavior){
+  if(frameCount%spawntime==0){
+  engine.add(new Enemy(xpos,ypos,xvel,yvel,behavior)); //red
+    }
+ }
+  
+/*  if(frameCount%20==0){
   engine.add(new enemybullet(x,y-3,5,8));
   engine.add(new enemybullet(x,y,7,8));
   engine.add(new enemybullet(x,y-3,3,8));
   engine.add(new enemybullet(x,y-3,0,8));
   engine.add(new enemybullet(x+3,y-3,0,8));
   }
-  }
+  
+  */
+  
  
- void Rightline(float xpos){
- if(frameCount%200==0){
- engine.add(new Enemy(x,y));
- }
- }
- 
- void Randompattern(float xpos){
- if(frameCount%10==0){
-  engine.add(new OtherEnemy(x,y)); 
- }
+ void SpawnEnemy2(float xpos,float ypos,float xvel,float yvel,float spawntime,int behavior){
+ if(frameCount%spawntime==0){
+  engine.add(new Enemy2(xpos,ypos,xvel,yvel,behavior)); //green
+     }
  }
  
- void Randomshooter(float xpos){
- if(frameCount%30==0){
-  engine.add(new ShootingEnemy(x,y)); 
+ void SpawnShootingEnemy(float xpos,float ypos,float xvel,float yvel,float spawntime,int behavior){
+ if(frameCount%spawntime==0){
+  engine.add(new ShootingEnemy(xpos,ypos,xvel,yvel,behavior)); //yellow
  }
  }
  

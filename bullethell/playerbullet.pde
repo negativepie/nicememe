@@ -1,6 +1,6 @@
 class playerbullet extends Bullet{
-    playerbullet(float Xstart, float Ystart,float xvel, float yvel){
-      super(Xstart,Ystart,xvel,yvel);
+    playerbullet(float Xstart, float Ystart,float xvel, float yvel, int behaviour){
+      super(Xstart,Ystart,xvel,yvel,behaviour);
       dy=yvel;
       dx=xvel;
     }

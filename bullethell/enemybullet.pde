@@ -1,6 +1,6 @@
 class enemybullet extends Bullet{
-    enemybullet(float Xstart, float Ystart,float xvel, float yvel){
-      super(Xstart,Ystart,xvel,yvel);
+    enemybullet(float Xstart, float Ystart,float xvel, float yvel, int behaviour){
+      super(Xstart,Ystart,xvel,yvel,behaviour);
       dy=yvel;
       dx=xvel;
     }

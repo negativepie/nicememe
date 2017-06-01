@@ -6,6 +6,8 @@ class Player extends GameObject{
    y=550;
    dx=0;
    dy=0;
+   objwidth=8;
+   objheight=8;
   }
   
   void show(){
@@ -16,7 +18,7 @@ class Player extends GameObject{
    copy(reimusprite,30,100,35,50,(int)x-15,(int)y-30,35,60);
    }
    fill(255);
-   ellipse(x,y,8,8);
+   ellipse(x,y,objwidth,objheight);
   }
   
   void act(){
@@ -30,7 +32,7 @@ class Player extends GameObject{
    if(leftkey&&shiftkey)dx=-2;
    if(rightkey)dx=4.5;
    if(rightkey&&shiftkey)dx=2;
-   if(shootkey) engine.add(new playerbullet(reimu.x,reimu.y,0,-25));
+   if(shootkey) engine.add(new playerbullet(reimu.x,reimu.y,0,-25,0));
    x=x+dx;
    y=y+dy;
    collisioncheck2();

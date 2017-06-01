@@ -1,6 +1,6 @@
 class ShootingEnemy extends Enemy{
- ShootingEnemy(float Xstart, float Ystart, float xvel, float yvel){
-   super(Xstart,Ystart,xvel,yvel);
+ ShootingEnemy(float Xstart, float Ystart, float xvel, float yvel,int behavior){
+   super(Xstart,Ystart,xvel,yvel,behavior);
    dx=xvel;
    dy=yvel;
    objwidth=75;

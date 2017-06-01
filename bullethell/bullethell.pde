@@ -1,5 +1,5 @@
 ArrayList<GameObject> engine;
-boolean upkey,downkey,leftkey,rightkey,shootkey,bombkey,shiftkey;
+boolean upkey,downkey,leftkey,rightkey,shootkey,bombkey,shiftkey,pausekey;
 Player reimu;
 PImage background;
 PImage reimusprite;
@@ -15,7 +15,7 @@ void setup(){
    engine.add(new Enemyfarm());
    background=loadImage("test.png");
    reimusprite=loadImage("reimu sprite.png");
-   rectMode(CENTER);
+   //rectMode(CENTER);
 }
 
 void draw(){
@@ -46,6 +46,7 @@ void keyPressed(){
   if(key=='z'||key=='Z')     shootkey=true;
   if(key=='x'||key=='X')     bombkey=true;
   if(keyCode==SHIFT)         shiftkey=true;
+  if(key=='p'||key=='P') pausekey=true;
 }
 
 void keyReleased(){
@@ -56,4 +57,5 @@ void keyReleased(){
   if(key=='z'||key=='Z')     shootkey=false;
   if(key=='x'||key=='X')     bombkey=false;
   if(keyCode==SHIFT)         shiftkey=false;
+  if(key=='p'||key=='P')     pausekey=false;
 }

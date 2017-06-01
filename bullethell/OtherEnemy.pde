@@ -1,6 +1,6 @@
 class OtherEnemy extends Enemy{
-  OtherEnemy(float Xstart, float Ystart, float xvel, float yvel){
-   super(Xstart,Ystart,xvel,yvel);
+  OtherEnemy(float Xstart, float Ystart, float xvel, float yvel,int behavior){
+   super(Xstart,Ystart,xvel,yvel,behavior);
    x=Xstart;
    y=Ystart;
    dx=xvel;

@@ -22,7 +22,6 @@ class Enemy extends GameObject{
    if(mode==delta){
    x=x+dx;
    y=y+dy;
-   collisioncheck();
    }
    if(mode==2){
      x=x+dx;
@@ -32,6 +31,8 @@ class Enemy extends GameObject{
      x=x+dx;
      y=sin(x);
    }
+    collisioncheck();
+
  }
  
 void collisioncheck(){

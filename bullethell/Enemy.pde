@@ -23,23 +23,13 @@ class Enemy extends GameObject{
    x=x+dx;
    y=y+dy;
    }
-   if(mode==gauss){
+   if(mode==2){
      x=x+dx;
-     y=Gauss(300,57,150,x-250,y);
+     y=Gauss(300,57,150,x,y);
    }
-   if(mode==sin){
+   if(mode==3){
      x=x+dx;
-     y=100*sin(x/30);
-   }
-   if(mode==sawtooth){
-     x=x+dx;
-     y=500*Sawtooth(1000*x+500);
-   }
-   if(mode==spiral){
-  x=x+8*dx*sin(0.1*theta)+dx;
-  y=y+8*dy*cos(0.1*theta)+dy;
-  theta=theta+0.1;
-
+     y=sin(x);
    }
     collisioncheck();
 

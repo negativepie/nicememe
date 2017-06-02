@@ -25,7 +25,7 @@ class Enemyfarm extends GameObject{
  //      SpawnEnemy(650-80*i,-50,0,15,130,delta);
      }
      
-   }  
+   }
    else if(frameCount<1000){
      for(int i=0;i<7;i++){
 //       SpawnEnemy(-80*i,-30*i,10,10,100,delta);

@@ -1,6 +1,10 @@
 //game is 800x600
 final int delta=1;
 final int gauss=2;
+final int sin=3;
+final int sawtooth=4;
+final int spiral=5;
+final int funky=6;
 
 class Enemyfarm extends GameObject{
  Enemyfarm(){
@@ -16,8 +20,10 @@ class Enemyfarm extends GameObject{
  }
  
  void act(){
-   if(frameCount<500){
-     SpawnEnemy(-40,-40,3,0,50,gauss);
+   if(frameCount<1000){
+     SpawnEnemy(0,300,2,2,50,sawtooth);
+ //     SpawnEnemy(300,-50,2,2,50,spiral);
+ //    SpawnEnemy(-40,-40,3,0,50,gauss);
      for(int i=0;i<6;i++){              
  //      SpawnEnemy(20+80*i,-50,0,15,80,delta);
      }

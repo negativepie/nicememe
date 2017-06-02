@@ -18,7 +18,9 @@ class Player extends GameObject{
    copy(reimusprite,30,100,35,50,(int)x-15,(int)y-30,35,60);
    }
    fill(255);
+   if(shiftkey==true){
    ellipse(x,y,objwidth,objheight);
+   }
   }
   
   void act(){

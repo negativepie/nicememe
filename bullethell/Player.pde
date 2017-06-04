@@ -1,18 +1,14 @@
-//defines the player class
-
 class Player extends GameObject{
   
   Player(){
    hp=1;
    x=width/2;
-   y=550;
+   y=height-height*5/60;
    dx=0;
    dy=0;
-   objwidth=8;
-   objheight=8;
+   objwidth=width/100;
+   objheight=height*8/600;
   }
-  
-  //draws the player
   
   void show(){
    if(leftkey==false){
@@ -27,7 +23,6 @@ class Player extends GameObject{
    }
   }
   
-  //controls motion of the player, boolean checks stop player from moving off screen
   void act(){
    boolean upborder;
    boolean downborder;
@@ -60,13 +55,11 @@ class Player extends GameObject{
    if(leftkey&&shiftkey&&leftborder==false)dx=-2;
    if(rightkey&&rightborder==false)dx=4.5;
    if(rightkey&&shiftkey&&rightborder==false)dx=2;
-   if(shootkey) engine.add(new playerbullet(reimu.x,reimu.y,0,-25,0));
+   if(shootkey) engine.add(new playerbullet(reimu.x,reimu.y,0,-30,0));
    x=x+dx;
    y=y+dy;
    collisioncheck2();
    }
-   
-   //collision detection
      
    void collisioncheck2(){
    int index=0;

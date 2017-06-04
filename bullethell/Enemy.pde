@@ -1,25 +1,21 @@
-//define the enemy function, giving positions,velocities and hp
-
 class Enemy extends GameObject{
- Enemy(float Xstart,float Ystart, float xvel, float yvel,int behavior){
+ Enemy(float Xstart,float Ystart, float xvel, float yvel,int behavior, int shootmode){
   x=Xstart;
   y=Ystart;
   dx=xvel;
   dy=yvel;
   hp=10;
-  objwidth=50;
-  objheight=50;
-  int bullettype=1;
+  objwidth=width*50/800;
+  objheight=height*50/600;
   mode=behavior;
+  shot=shootmode;
  }
  
- //adding in visual of enemy
  void show(){
    fill(255,0,0);
    rect(x,y,objwidth,objheight);
  }
  
- //defining the various patterns that the enemies may move by
  void act(){
   //final int delta=1;
   //final int gauss=2;
@@ -59,8 +55,6 @@ class Enemy extends GameObject{
     collisioncheck();
 
  }
- 
- //collision detection 
  
 void collisioncheck(){
    int index=0;

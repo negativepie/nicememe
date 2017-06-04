@@ -1,7 +1,5 @@
-//game engine
-
 ArrayList<GameObject> engine;
-boolean upkey,downkey,leftkey,rightkey,shootkey,bombkey,shiftkey,pausekey,startkey,rebootkey;
+boolean upkey,downkey,leftkey,rightkey,shootkey,bombkey,shiftkey,pausekey,startkey;
 Player reimu;
 PImage background1;
 PImage background2;
@@ -10,11 +8,12 @@ int imgx=0;
 int imgy=0;
 int RealFrame=0;
 
-
-//addition of assets
+void settings(){
+  size(800,600,P2D);
+}
 
 void setup(){
-   size(800,600,P2D);
+   frameRate(60);
    engine = new ArrayList<GameObject>(10000);
    reimu=new Player();
    engine.add(reimu);
@@ -23,34 +22,27 @@ void setup(){
    background2=loadImage("bg2.png");
    reimusprite=loadImage("reimu sprite.png");
    rectMode(CENTER);
-
 }
 
-//drawing the actual game
-
 void draw(){
-  
   background(0,0);
-  copy(background1,0,0,320,256,imgx,imgy,800,600);
-  copy(background2,0,0,320,256,imgx,imgy-600,800,600);
-  copy(background1,0,0,320,256,imgx,imgy-2*600,800,600);
+  copy(background1,0,0,320,256,imgx,imgy,width,height);
+  copy(background2,0,0,320,256,imgx,imgy-height,width,height);
+  copy(background1,0,0,320,256,imgx,imgy-2*height,width,height);
   int index=engine.size()-1;
-  while(index>=0&&mode==PLAY){                       //making sure game is only running in play mode
+  while(index>=0&&mode==PLAY){
     GameObject obj=engine.get(index);
     obj.show();
     obj.act();
     if(mode==PAUSE){
       noLoop();
     }
-    if(mode==INTRO){
-     noLoop(); 
-    }
     if(obj.dead()){
      engine.remove(index); 
     }
     index--;
   }
-  if(imgy>=2*600){
+  if(imgy>=2*height){
   imgy=0;  
   }
   imgy=imgy+12;
@@ -61,18 +53,14 @@ void draw(){
   if(startkey==true){
     mode=PLAY;
   }
-  if(reimu.hp<1){
+  if(reimu.hp<=0){
     mode=GAMEOVER;
   }
   if(pausekey==true&&!(mode==GAMEOVER)){
     mode=PAUSE;
   }
-  if (mode == INTRO){
+  if (mode==INTRO){
     drawIntro();
-    if(rebootkey==true){
-     RealFrame=0;
-     mode=INTRO;
-    }
   } 
   else if (mode== PLAY) {
 //    drawGame();
@@ -84,17 +72,13 @@ void draw(){
     drawPause();
   }
   else{
-    println("Logic Error");   //informs if there is a mistake in game mode
+    println("Logic Error");
   }
-     println(RealFrame);      //test case checking that RealFrame is only changing when the game is playing
-     println(rebootkey);
+   println(RealFrame);
      if(mode==PLAY){
 RealFrame=RealFrame+1;
      }
-     
 }
-
-//game keys
 
 void keyPressed(){
   if(keyCode==UP)            upkey=true;
@@ -113,10 +97,6 @@ void keyPressed(){
   }
   
   if(key=='s'||key=='S')     startkey=true;
-  if(key=='r'||key=='R'){ 
-     rebootkey=true;
-   }
-   
 }
 
 void keyReleased(){
@@ -128,5 +108,4 @@ void keyReleased(){
   if(key=='x'||key=='X')     bombkey=false;
   if(keyCode==SHIFT)         shiftkey=false;
 //  if(key=='p'||key=='P')     pausekey=false;
-  if(key=='r'||key=='R')     rebootkey=false;
 }

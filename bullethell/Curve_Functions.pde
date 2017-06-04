@@ -20,15 +20,13 @@ float Gauss(int a,int b,int c,float x,float y){
   return y;
 }
 
-//Sawtooth function
-
 float Sawtooth(float t){
   float y;
   y=t-floor(t);
   return y;
 }
 
-//spiral functions
+//spiral
 
 float spiralx(float theta,float theta_vel,float theta_acc){
   float r=100;

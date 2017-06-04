@@ -1,5 +1,5 @@
 ArrayList<GameObject> engine;
-boolean upkey,downkey,leftkey,rightkey,shootkey,bombkey,shiftkey,pausekey;
+boolean upkey,downkey,leftkey,rightkey,shootkey,bombkey,shiftkey,pausekey,startkey;
 Player reimu;
 PImage background1;
 PImage background2;
@@ -10,6 +10,7 @@ int imgy=0;
 
 void setup(){
    size(800,600,P2D);
+   frameRate(60);
    engine = new ArrayList<GameObject>(10000);
    reimu=new Player();
    engine.add(reimu);
@@ -26,10 +27,13 @@ void draw(){
   copy(background2,0,0,320,256,imgx,imgy-600,800,600);
   copy(background1,0,0,320,256,imgx,imgy-2*600,800,600);
   int index=engine.size()-1;
-  while(index>=0){
+  while(index>=0&&mode==PLAY){
     GameObject obj=engine.get(index);
     obj.show();
     obj.act();
+    if(mode==PAUSE){
+      noLoop();
+    }
     if(obj.dead()){
      engine.remove(index); 
     }
@@ -39,6 +43,34 @@ void draw(){
   imgy=0;  
   }
   imgy=imgy+12;
+  
+  
+  //gamescreens
+  mode=INTRO;
+  if(startkey==true){
+    mode=PLAY;
+  }
+  if(reimu.hp==0){
+    mode=GAMEOVER;
+  }
+  if(pausekey==true){
+    mode=PAUSE;
+  }
+  if (mode == INTRO){
+    drawIntro();
+  } 
+  else if (mode== PLAY) {
+//    drawGame();
+  }
+  else if (mode==GAMEOVER){
+    drawGameOver();
+  }
+  else if(mode==PAUSE){
+    drawPause();
+  }
+  else{
+    println("Logic Error");
+  }
 }
 
 void keyPressed(){
@@ -49,7 +81,15 @@ void keyPressed(){
   if(key=='z'||key=='Z')     shootkey=true;
   if(key=='x'||key=='X')     bombkey=true;
   if(keyCode==SHIFT)         shiftkey=true;
-  if(key=='p'||key=='P') pausekey=true;
+  pausekey=false;
+  if(key=='p'||key=='P'&&pausekey==false){     
+  pausekey=true;
+  }
+  else if (key=='p'||key=='P'&&pausekey==true){
+    pausekey=false;
+  }
+  
+  if(key=='s'||key=='S')     startkey=true;
 }
 
 void keyReleased(){
@@ -60,5 +100,5 @@ void keyReleased(){
   if(key=='z'||key=='Z')     shootkey=false;
   if(key=='x'||key=='X')     bombkey=false;
   if(keyCode==SHIFT)         shiftkey=false;
-  if(key=='p'||key=='P')     pausekey=false;
+//  if(key=='p'||key=='P')     pausekey=false;
 }

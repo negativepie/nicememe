@@ -24,16 +24,37 @@ class Player extends GameObject{
   }
   
   void act(){
+   boolean upborder;
+   boolean downborder;
+   boolean rightborder;
+   boolean leftborder;
    dx=0;
    dy=0;
-   if(upkey)dy=-4.5;
-   if(upkey&&shiftkey)dy=-2;
-   if(downkey)dy=4.5;
-   if(downkey&&shiftkey)dy=2;
-   if(leftkey)dx=-4.5;
-   if(leftkey&&shiftkey)dx=-2;
-   if(rightkey)dx=4.5;
-   if(rightkey&&shiftkey)dx=2;
+    if(x>=width&&rightkey){
+   rightborder=true;
+   }
+   else{rightborder=false;}
+   if(x<=0&&leftkey){
+   leftborder=true;
+   }
+   else{leftborder=false;}
+   if(y>=height&&downkey){
+   downborder=true;
+   }
+   else{downborder=false;}
+   if(y<=0&&upkey){
+   upborder=true;
+   }
+   else{upborder=false;}
+   
+   if(upkey&&upborder==false)dy=-4.5;
+   if(upkey&&shiftkey&&upborder==false)dy=-2;
+   if(downkey&&downborder==false)dy=4.5;
+   if(downkey&&shiftkey&&downborder==false)dy=2;
+   if(leftkey&&leftborder==false)dx=-4.5;
+   if(leftkey&&shiftkey&&leftborder==false)dx=-2;
+   if(rightkey&&rightborder==false)dx=4.5;
+   if(rightkey&&shiftkey&&rightborder==false)dx=2;
    if(shootkey) engine.add(new playerbullet(reimu.x,reimu.y,0,-25,0));
    x=x+dx;
    y=y+dy;

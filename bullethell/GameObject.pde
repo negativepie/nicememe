@@ -1,6 +1,6 @@
 abstract class GameObject{
     float x,y,objwidth,objheight,dx,dy,hp;
-    int mode;
+    int mode,shot;
     
     GameObject(){
     

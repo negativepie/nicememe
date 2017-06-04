@@ -1,10 +1,10 @@
-/*
-
 int mode;
 final int INTRO=1;
 final int PLAY=2;
 final int GAMEOVER=3;
 final int PAUSE=4;
+
+/*
 boolean upkey,downkey,leftkey,rightkey,shootkey,bombkey,shiftkey,pausekey;
 
 void keyPressed(){
@@ -36,6 +36,8 @@ void setup(){
   mode =INTRO;
 }
 
+
+
 void draw() {
   if(upkey==true){
     mode=PLAY;
@@ -63,6 +65,8 @@ void draw() {
   }
 }
 
+*/
+
 void drawIntro(){
   background(255);
   fill(50);
@@ -71,12 +75,15 @@ void drawIntro(){
   text("Press arrow keys to start",width/2-125,height/2+50);
 }
 
+/*
 void drawGame(){
   background(255);
   fill(50);
   textSize(20);
   text("Dank Memes are running",width/2-60,height/2);
 }
+
+*/
 
 void drawGameOver(){
   background(0);
@@ -91,5 +98,3 @@ void drawPause(){
   textSize(20);
   text("PAUSED",width/2-60,height/2);
 }
-
-*/

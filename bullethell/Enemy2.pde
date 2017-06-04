@@ -1,6 +1,6 @@
 class Enemy2 extends Enemy{
-  Enemy2(float Xstart, float Ystart, float xvel, float yvel,int behavior){
-   super(Xstart,Ystart,xvel,yvel,behavior);
+  Enemy2(float Xstart, float Ystart, float xvel, float yvel,int behavior,int shootmode){
+   super(Xstart,Ystart,xvel,yvel,behavior,shootmode);
    x=Xstart;
    y=Ystart;
    dx=xvel;

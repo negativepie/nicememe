@@ -26,8 +26,12 @@ class Enemyfarm extends GameObject{
  
  void act(){
    if(RealFrame<500){
+     SpawnBoss(300,-30,2,2,300,1);
+     
+   }
+ }
    
-     for(int i=0;i<6;i++){              
+/*     for(int i=0;i<6;i++){              
        //SpawnEnemy(20+80*i,-50,0,20,80,delta);
      }
      for(int i=0;i<6;i++){
@@ -79,6 +83,8 @@ class Enemyfarm extends GameObject{
    SpawnEnemy(840,840,-10,0,20,gauss2b);
    }
  }
+ 
+ */
 
 //function for spawning enemies
 
@@ -105,10 +111,11 @@ class Enemyfarm extends GameObject{
      }
  }
  
- void SpawnShootingEnemy(float xpos,float ypos,float xvel,float yvel,float spawntime,int behavior){
- if(RealFrame%spawntime==0){
-  engine.add(new ShootingEnemy(xpos,ypos,xvel,yvel,behavior)); //yellow
- }
+ 
+ void SpawnBoss(float xpos,float ypos,float xvel,float yvel,float spawntime,int behavior){
+   if(RealFrame%spawntime==0){
+  engine.add(new Boss(xpos,ypos,xvel,yvel,behavior));  
+       }
  }
  
  

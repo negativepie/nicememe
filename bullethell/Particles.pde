@@ -1,3 +1,5 @@
+//death animation
+
 class Particles extends GameObject{
  Particles(float Xstart, float Ystart){
    x=Xstart;

@@ -1,3 +1,5 @@
+//player bullet class
+
 class playerbullet extends Bullet{
     playerbullet(float Xstart, float Ystart,float xvel, float yvel, int behaviour){
       super(Xstart,Ystart,xvel,yvel,behaviour);

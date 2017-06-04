@@ -1,3 +1,5 @@
+//bullet class
+
 class enemybullet extends Bullet{
     enemybullet(float Xstart, float Ystart,float xvel, float yvel, int behaviour){
       super(Xstart,Ystart,xvel,yvel,behaviour);

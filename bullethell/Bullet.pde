@@ -1,3 +1,5 @@
+//adding the bullet calss, dx and dy are the velocities, behavior determines the pattern by which they move
+
 class Bullet extends GameObject{
    Bullet(float Xstart,float Ystart,float xvel, float yvel, int behaviour){
     x=Xstart;

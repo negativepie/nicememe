@@ -1,3 +1,5 @@
+//enemy class 2
+
 class Enemy2 extends Enemy{
   Enemy2(float Xstart, float Ystart, float xvel, float yvel,int behavior){
    super(Xstart,Ystart,xvel,yvel,behavior);

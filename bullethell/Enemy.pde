@@ -1,7 +1,7 @@
 //define the enemy function, giving positions,velocities and hp
 
 class Enemy extends GameObject{
- Enemy(float Xstart,float Ystart, float xvel, float yvel,int behavior){
+ Enemy(float Xstart,float Ystart, float xvel, float yvel,int behavior,float bullettime, int shotmode){
   x=Xstart;
   y=Ystart;
   dx=xvel;
@@ -9,8 +9,9 @@ class Enemy extends GameObject{
   hp=10;
   objwidth=50;
   objheight=50;
-  int bullettype=1;
   mode=behavior;
+  shot=shotmode;
+  time=bullettime;
  }
  
  //adding in visual of enemy
@@ -26,6 +27,9 @@ class Enemy extends GameObject{
    if(mode==delta){
    x=x+dx;
    y=y+dy;
+   if(shot==1){
+     Spray(x,y,3,4,time,2,0);
+     }
    }
    if(mode==gausso){
      x=x+dx+random(-3,3);
@@ -71,7 +75,7 @@ void collisioncheck(){
         hp=hp-1;
         tempobject.hp=0;
         engine.add(new Particles(tempobject.x,tempobject.y));
-     }
+       }
      }
      index++;
    }

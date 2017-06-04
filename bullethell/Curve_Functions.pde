@@ -14,9 +14,9 @@ int c=2;
 float Gauss(int a,int b,int c,float x,float y){
 //  float y;
   y=a*exp(-pow((x-b),2)/(2*pow(c,2)));
-  if(RealFrame%60==0){
-  Spray(x,y,0,8,2,0);
-  }
+  //if(RealFrame%60==0){
+  //Spray(x,y,0,8,2,0);
+  //}
   return y;
 }
 

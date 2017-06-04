@@ -25,66 +25,63 @@ class Enemyfarm extends GameObject{
  //Spawn patterns, RealFrame is a proxy measurement of time 
  
  void act(){
-   if(RealFrame<500){
-   
+   if(RealFrame==2){
+   SpawnBoss(300,-30,2,2,0,20,1,1);
      for(int i=0;i<6;i++){              
        //SpawnEnemy(20+80*i,-50,0,20,80,delta);
      }
      for(int i=0;i<6;i++){
        //SpawnEnemy(700-80*i,-50,0,20,150,delta);
      }
-     
    }
    else if(RealFrame<1000){
      for(int i=0;i<4;i++){
-      SpawnEnemy(-110*i,-30*i,10,3,100,delta);
-      SpawnEnemy(600+110*i,-30*i,-10,3,100,delta);       
-      SpawnEnemy2(50+140*i,-50,20,0,120,delta);
-      SpawnEnemy2(650-120*i,-120,20,0,180,delta);
+      SpawnEnemy(-110*i,-30*i,10,3,60,100,delta,1);
+      SpawnEnemy(600+110*i,-30*i,-10,3,60,100,delta,1);       
        }
    }
    else if(RealFrame<1500){
-     SpawnEnemy(-40,-40,8,0,15,gausso);
+     SpawnEnemy(-40,-40,8,0,15,60,gausso,1);
      //SpawnEnemy(840,840,-8,0,20,gausso);
    }
    else if(RealFrame<2000){
  for(int i=0;i<3;i++){
-  SpawnEnemy(-20,100+80*i,20,0,200,delta);
+  SpawnEnemy(-20,100+80*i,20,0,200,60,delta,1);
    }
   for(int i=0;i<3;i++){
-    SpawnEnemy(-20,300+80*i,20,0,350,delta);
+    SpawnEnemy(-20,300+80*i,20,0,350,60,delta,1);
         }
    }
    else if(RealFrame<2500){
-     SpawnEnemy2(-30,300,10,0,10,gauss2);
+     SpawnEnemy(-30,300,10,0,10,60,gauss2,1);
      for(int i=0;i<4;i++){
-   SpawnEnemy(300+120*i,-20,0,20,100,delta);
+   SpawnEnemy(300+120*i,-20,0,20,100,60,delta,1);
    }
    for(int i=0;i<4;i++){
-   SpawnEnemy(60*i,-20,0,20,180,delta);
+   SpawnEnemy(60*i,-20,0,20,180,60,delta,1);
        }
     }
    else if(RealFrame<3000){
-     SpawnEnemy(-20,300,5,-5,20,sin);
+     SpawnEnemy(-20,300,5,-5,20,60,sin,1);
         }
    else if(RealFrame<4700){
-    SpawnEnemy(-40,-40,8,0,15,gauss);
-    SpawnEnemy(840,840,-8,0,20,gaussb);
+    SpawnEnemy(-40,-40,8,0,15,60,gauss,1);
+    SpawnEnemy(840,840,-8,0,20,60,gaussb,1);
    }
    else if(RealFrame<5500){
-     SpawnEnemy(-20,100,2,2,30,spiral);
+     SpawnEnemy(-20,100,2,2,30,60,spiral,1);
    }
    else if(RealFrame<6500){
-   SpawnEnemy2(-30,300,10,0,10,gauss2);
-   SpawnEnemy(840,840,-10,0,20,gauss2b);
+   SpawnEnemy(-30,300,10,0,10,60,gauss2,1);
+   SpawnEnemy(840,840,-10,0,20,60,gauss2b,1);
    }
  }
 
 //function for spawning enemies
 
- void SpawnEnemy(float xpos,float ypos,float xvel,float yvel,float spawntime,int behavior){
+ void SpawnEnemy(float xpos,float ypos,float xvel,float yvel,float spawntime,float bullettime, int behavior,int shotmode){
   if(RealFrame%spawntime==0){
-  engine.add(new Enemy(xpos,ypos,xvel,yvel,behavior)); //red
+  engine.add(new Enemy(xpos,ypos,xvel,yvel,behavior,bullettime,shotmode)); //red
     }
  }
   
@@ -99,16 +96,8 @@ class Enemyfarm extends GameObject{
   */
   
  
- void SpawnEnemy2(float xpos,float ypos,float xvel,float yvel,float spawntime,int behavior){
- if(RealFrame%spawntime==0){
-  engine.add(new Enemy2(xpos,ypos,xvel,yvel,behavior)); //green
-     }
- }
- 
- void SpawnShootingEnemy(float xpos,float ypos,float xvel,float yvel,float spawntime,int behavior){
- if(RealFrame%spawntime==0){
-  engine.add(new ShootingEnemy(xpos,ypos,xvel,yvel,behavior)); //yellow
- }
+ void SpawnBoss(float xpos,float ypos,float xvel,float yvel,float spawntime,float bullettime,int behavior,int shotmode){
+  engine.add(new Boss(xpos,ypos,xvel,yvel,behavior,bullettime,shotmode)); //yellow
  }
  
  

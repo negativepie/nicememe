@@ -60,7 +60,7 @@ class Enemy extends GameObject{
 
  }
  
- //collision detection 
+ //collision check for enemies 
  
 void collisioncheck(){
    int index=0;

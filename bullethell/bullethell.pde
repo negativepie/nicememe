@@ -31,9 +31,9 @@ void setup(){
 void draw(){
   
   background(0,0);
-  copy(background1,0,0,320,256,imgx,imgy,800,600);
-  copy(background2,0,0,320,256,imgx,imgy-600,800,600);
-  copy(background1,0,0,320,256,imgx,imgy-2*600,800,600);
+  copy(background1,0,0,320,256,imgx,imgy,width,height);
+  copy(background2,0,0,320,256,imgx,imgy-height,width,height);
+  copy(background1,0,0,320,256,imgx,imgy-2*height,width,height);
   int index=engine.size()-1;
   while(index>=0&&mode==PLAY){                       //making sure game is only running in play mode
     GameObject obj=engine.get(index);

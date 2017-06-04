@@ -12,7 +12,7 @@ class Player extends GameObject{
    objheight=8;
   }
   
-  //draws the player
+  //draws the player and the hitbox when the shiftkey is held
   
   void show(){
    if(leftkey==false){

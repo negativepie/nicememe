@@ -48,5 +48,3 @@ class Boss extends Enemy{
    }
    }
  }
- 
-}

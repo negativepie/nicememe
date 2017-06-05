@@ -1,5 +1,4 @@
 //game engine
-
 ArrayList<GameObject> engine;
 boolean upkey,downkey,leftkey,rightkey,shootkey,bombkey,shiftkey,pausekey,startkey,rebootkey;
 Player reimu;
@@ -67,18 +66,20 @@ void draw(){
   if(pausekey==true&&!(mode==GAMEOVER)){
     mode=PAUSE;
   }
-  if (mode == INTRO){
+  if(mode==INTRO){
+    rebootkey=false;
     drawIntro();
+  } 
+  if (mode==PLAY) {
+    loop();
+  }
+    if (mode==GAMEOVER){
+    drawGameOver();
     if(rebootkey==true){
      RealFrame=0;
      mode=INTRO;
+     drawIntro();
     }
-  } 
-  else if (mode== PLAY) {
-//    drawGame();
-  }
-  else if (mode==GAMEOVER){
-    drawGameOver();
   }
   else if(mode==PAUSE){
     drawPause();
@@ -86,8 +87,9 @@ void draw(){
   else{
     println("Logic Error");   //informs if there is a mistake in game mode
   }
-     println(RealFrame);      //test case checking that RealFrame is only changing when the game is playing
+    println(RealFrame);      //test case checking that RealFrame is only changing when the game is playing
      println(rebootkey);
+     
      if(mode==PLAY){
 RealFrame=RealFrame+1;
      }
@@ -111,7 +113,6 @@ void keyPressed(){
   else if (key=='p'||key=='P'&&pausekey==true){
     pausekey=false;
   }
-  
   if(key=='s'||key=='S')     startkey=true;
   if(key=='r'||key=='R'){ 
      rebootkey=true;
@@ -128,5 +129,5 @@ void keyReleased(){
   if(key=='x'||key=='X')     bombkey=false;
   if(keyCode==SHIFT)         shiftkey=false;
 //  if(key=='p'||key=='P')     pausekey=false;
-  if(key=='r'||key=='R')     rebootkey=false;
+  //if(key=='r'||key=='R')     rebootkey=false;
 }

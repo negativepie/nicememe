@@ -27,9 +27,6 @@ class Enemy extends GameObject{
    if(mode==delta){
    x=x+dx;
    y=y+dy;
-   if(shot==1){
-     Spray(x,y,3,4,time,2,0);
-     }
    }
    if(mode==gausso){
      x=x+dx+random(-3,3);
@@ -61,8 +58,24 @@ class Enemy extends GameObject{
      theta=theta+0.025;
    }
     collisioncheck();
-
+ if(shot==1){
+   Spray(x+random(-3,3),y+random(-3,3),3,4,time,2,0);
+   }
+ if(shot==2){
+   Track(x,y,3,4,time,2,0);
+   }
+ if(shot==3){
+   Down(x,y,3,4,time,2,0);
+   Down(x+20+(random(0,5)),y-random(0,20),3,4,time,2,0);
  }
+ if(shot==4){
+   Circle(x,y,3,4,time,60,0); 
+ }
+ if(shot==5){
+   CircleRepeat(x,y,3,4,time,60,0);
+ }
+ }
+ 
  
  //collision check for enemies 
  

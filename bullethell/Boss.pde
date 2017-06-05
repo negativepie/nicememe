@@ -29,11 +29,24 @@ class Boss extends Enemy{
    if(x<100){
      dx=-dx;
    }
-   if(shot==1){
-     Spray(x,y,3,4,time,2,0);
-   }
   }
  collisioncheck();
+  if(shot==1){
+   Spray(x,y,3,4,time,2,0);
+   }
+ if(shot==2){
+   Track(x,y,1,4,time,60,0);
+   }
+   
+ if(shot==3){
+   Down(x,y,3,4,time,2,0);
+ }
+ if(shot==4){
+   Circle(x,y,3,3,time,60,0); 
+ }
+ if(shot==5){
+   CircleRepeat(x,y,3,3,time,60,0);
+ }
  }
  
 }

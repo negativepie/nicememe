@@ -5,11 +5,13 @@ class enemybullet extends Bullet{
       super(Xstart,Ystart,xvel,yvel,behaviour);
       dy=yvel;
       dx=xvel;
+      objwidth=7;
+      objheight=7;
     }
     
   void show(){
   fill(0,50,255);
-  ellipse(x,y,10,10);
+  ellipse(x,y,objwidth+3,objheight+3);
 }
 
 boolean dead(){

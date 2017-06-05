@@ -1,4 +1,4 @@
-//assigning integer values for the different behaviors of the enemies
+//assigning integer values for the different behaviors of the enemies and bullets
 final int delta=1;
 final int gauss=2;
 final int sin=3;
@@ -7,6 +7,13 @@ final int gauss2=5;
 final int gaussb=6;
 final int gauss2b=7;
 final int gausso=8;
+
+final int spray=1;
+final int track=2;
+final int down=3;
+final int circle=4;
+final int circlerepeat=5;
+
 
 //control enemy spawning
 class Enemyfarm extends GameObject{
@@ -22,17 +29,13 @@ class Enemyfarm extends GameObject{
   ellipse(x,y,50,50);
  }
  
- //Spawn patterns, RealFrame is a proxy measurement of time 
+ //Spawn patterns, RealFrame is a proxy measurement of time used so that the game does not run while paused or during the intro screen.
+ //Enemies are spawned using the SpawnEnemy function which provide details for spawning and give information for movement patterns and for the bullet patterns that enemies fire.
+ //SpawnBoss spawns the boss using the same parameters
  
  void act(){
-   if(RealFrame==7000){
+   if(RealFrame==4200){
    SpawnBoss(300,-30,2,2,0,50,1,5);
-     for(int i=0;i<6;i++){              
-       //SpawnEnemy(20+80*i,-50,0,20,80,delta);
-     }
-     for(int i=0;i<6;i++){
-       //SpawnEnemy(700-80*i,-50,0,20,150,delta);
-     }
    }
    else if(RealFrame<1000){
      for(int i=0;i<4;i++){
@@ -41,8 +44,8 @@ class Enemyfarm extends GameObject{
        }
    }
    else if(RealFrame<1500){
-     SpawnEnemy(-40,-40,8,0,5,70,gausso,1);
-     //SpawnEnemy(840,840,-8,0,20,gausso);
+     SpawnEnemy(-40,-40,8,0,50,20,gausso,1);
+     SpawnEnemy(840,840,-8,0,50,20,gausso,1);
    }
    else if(RealFrame<2000){
  for(int i=0;i<3;i++){
@@ -64,16 +67,13 @@ class Enemyfarm extends GameObject{
    else if(RealFrame<3000){
      SpawnEnemy(-20,300,5,-5,20,60,sin,5);
         }
-   else if(RealFrame<4700){
+    else if(RealFrame<3200){
     SpawnEnemy(-40,-40,8,0,15,60,gauss,1);
-    SpawnEnemy(840,840,-8,0,20,60,gaussb,1);
+    SpawnEnemy(840,840,-8,0,20,60,gaussb,3);
    }
-   else if(RealFrame<5500){
-     SpawnEnemy(-20,100,2,2,30,60,spiral,1);
-   }
-   else if(RealFrame<6500){
+   else if(RealFrame<4000){
    SpawnEnemy(-30,300,10,0,10,60,gauss2,2);
-   SpawnEnemy(840,840,-10,0,20,60,gauss2b,3);
+   SpawnEnemy(840,840,-10,0,20,120,gauss2b,5);
    }
  }
 
@@ -81,23 +81,12 @@ class Enemyfarm extends GameObject{
 
  void SpawnEnemy(float xpos,float ypos,float xvel,float yvel,float spawntime,float bullettime, int behavior,int shotmode){
   if(RealFrame%spawntime==0){
-  engine.add(new Enemy(xpos,ypos,xvel,yvel,behavior,bullettime,shotmode)); //red
+  engine.add(new Enemy(xpos,ypos,xvel,yvel,behavior,bullettime,shotmode));
     }
- }
-  
-/*  if(frameCount%20==0){
-  engine.add(new enemybullet(x,y-3,5,8));
-  engine.add(new enemybullet(x,y,7,8));
-  engine.add(new enemybullet(x,y-3,3,8));
-  engine.add(new enemybullet(x,y-3,0,8));
-  engine.add(new enemybullet(x+3,y-3,0,8));
-  }
-  
-  */
-  
+ }  
  
  void SpawnBoss(float xpos,float ypos,float xvel,float yvel,float spawntime,float bullettime,int behavior,int shotmode){
-  engine.add(new Boss(xpos,ypos,xvel,yvel,behavior,bullettime,shotmode)); //yellow
+  engine.add(new Boss(xpos,ypos,xvel,yvel,behavior,bullettime,shotmode)); 
  }
  
  

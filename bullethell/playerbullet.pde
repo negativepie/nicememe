@@ -7,12 +7,10 @@ class playerbullet extends Bullet{
       dx=xvel;
     }
     
-  void show(){
+void show(){
  fill(8,192,255);
  rect(x,y,objwidth,objheight);
+ copy(bulletsheet,263,231,9,13,(int)(x-objwidth/2),(int)(y-objheight/2),(int)objwidth,(int)objheight);
 }
 
-boolean dead(){
- return y<0||hp<=0; 
-}
 }

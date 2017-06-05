@@ -7,8 +7,8 @@ class Enemy extends GameObject{
   dx=xvel;
   dy=yvel;
   hp=10;
-  objwidth=50;
-  objheight=50;
+  objwidth=40;
+  objheight=40;
   mode=behavior;
   shot=shotmode;
   time=bullettime;
@@ -16,8 +16,22 @@ class Enemy extends GameObject{
  
  //adding in visual of enemy
  void show(){
-   fill(255,0,0);
-   rect(x,y,objwidth,objheight);
+   if(shot==spray){
+   copy(enemy3,0,0,36,30,(int)(x-objwidth/2),(int)(y-objheight/2),(int)objwidth,(int)objheight);
+   }
+   if(shot==track){
+   copy(enemy5,0,0,52,61,(int)(x-objwidth/2),(int)(y-objheight/2),(int)objwidth,(int)objheight);
+   }
+   if(shot==down){
+   copy(enemy4,0,0,40,52,(int)(x-objwidth/2),(int)(y-objheight/2),(int)objwidth,(int)objheight);
+   }
+   if(shot==circle){
+   copy(enemy2,0,0,46,47,(int)(x-objwidth/2),(int)(y-objheight/2),(int)objwidth,(int)objheight);
+   }
+   if(shot==circlerepeat){
+   copy(enemy1,0,0,58,50,(int)(x-objwidth/2),(int)(y-objheight/2),(int)objwidth,(int)objheight);
+   }
+   
  }
  
  //defining the various patterns that the enemies may move by
@@ -30,23 +44,23 @@ class Enemy extends GameObject{
    }
    if(mode==gausso){
      x=x+dx+random(-3,3);
-     y=Gauss(300,57,150,x,y);
+     y=Gauss(300,57,150,x);
    }
    if(mode==gauss){
      x=x+dx;
-     y=Gauss(300,57,150,x-180,y);
+     y=Gauss(300,57,150,x-180);
    }
    if(mode==gaussb){
      x=x+dx;
-      y=Gauss(300,57,150,x-500,y);
+      y=Gauss(300,57,150,x-500);
    }
    if(mode==gauss2){
      x=x+dx;
-     y=Gauss(500,100,200,x,y)+dy;
+     y=Gauss(500,100,200,x)+dy;
    }
    if(mode==gauss2b){
      x=x+dx;
-     y=Gauss(500,100,200,x-500,y)+dy;
+     y=Gauss(500,100,200,x-500)+dy;
    }
    if(mode==sin){
      x=x+dx;
@@ -58,20 +72,20 @@ class Enemy extends GameObject{
      theta=theta+0.025;
    }
     collisioncheck();
- if(shot==1){
+ if(shot==spray){
    Spray(x+random(-3,3),y+random(-3,3),3,4,time,2,0);
    }
- if(shot==2){
-   Track(x,y,3,4,time,2,0);
+ if(shot==track){
+   Track(x,y,3,4,time,3,0);
    }
- if(shot==3){
+ if(shot==down){
    Down(x,y,3,4,time,2,0);
    Down(x+20+(random(0,5)),y-random(0,20),3,4,time,2,0);
  }
- if(shot==4){
+ if(shot==circle){
    Circle(x,y,3,4,time,60,0); 
  }
- if(shot==5){
+ if(shot==circlerepeat){
    CircleRepeat(x,y,3,4,time,60,0);
  }
  }

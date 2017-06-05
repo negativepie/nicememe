@@ -3,7 +3,7 @@
 class Player extends GameObject{
   
   Player(){
-   hp=9001;
+   hp=1;
    x=width/2;
    y=550;
    dx=0;
@@ -15,12 +15,9 @@ class Player extends GameObject{
   //draws the player and the hitbox when the shiftkey is held
   
   void show(){
-   if(leftkey==false){
-   copy(reimusprite,0,0,35,50,(int)x-17,(int)y-30,35,60);
-   }
-   if(leftkey==true){
-   copy(reimusprite,30,100,35,50,(int)x-15,(int)y-30,35,60);
-   }
+   int reimuwidth=50;
+   int reimuheight=64;
+   copy(reimusprite,0,0,60,64,(int)x-reimuwidth/2,(int)y-reimuheight/2,reimuwidth,reimuheight);
    fill(255);
    if(shiftkey==true){
    ellipse(x,y,objwidth,objheight);

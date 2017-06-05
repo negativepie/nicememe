@@ -1,8 +1,8 @@
 /*
 Some basic structures of the program, primarily the use of classes and giving GameObjects 3 functions, show, act and dead to execute, are based off
-Len Petiller's 'Processing Bullet Hell' series on YouTube
-https://www.youtube.com/user/lenpelletier/
-*/
+ Len Petiller's 'Processing Bullet Hell' series on YouTube
+ https://www.youtube.com/user/lenpelletier/
+ */
 
 //Test Cases
 //When left arrow key pressed, player moves slightly towards the left
@@ -42,18 +42,18 @@ Player reimu;
 
 /*
 Reimu, Flandre and Enemysprites from the Touhou Puppet Play Project (https://animackid.wordpress.com/tag/touhoumon-english/)
-confirmation to be able to use sources is stated on the website.
-
-Original characters are the property of ZUN (Creator of the Touhou series), sometimes listed as Team Shanghai Alice. Derivative works
-of the Touhou series are allowed as stated in (http://www.geocities.co.jp/Playtown-Yoyo/1736/t-081-2.html) and the japanese translation of the statement
-as seen on the Touhou wiki https://en.touhouwiki.net/wiki/Touhou_Wiki:Copyrights
-
-Background image is under creative commons by 3.0, made by Paulina Riva
-https://opengameart.org/content/sky-background
-
-The sprite sheet for the bullets is developed by puremrz on shrinemaiden.org for other creators to use
-https://www.shrinemaiden.org/forum/index.php?topic=1525.0
-*/
+ confirmation to be able to use sources is stated on the website.
+ 
+ Original characters are the property of ZUN (Creator of the Touhou series), sometimes listed as Team Shanghai Alice. Derivative works
+ of the Touhou series are allowed as stated in (http://www.geocities.co.jp/Playtown-Yoyo/1736/t-081-2.html) and the japanese translation of the statement
+ as seen on the Touhou wiki https://en.touhouwiki.net/wiki/Touhou_Wiki:Copyrights
+ 
+ Background image is under creative commons by 3.0, made by Paulina Riva
+ https://opengameart.org/content/sky-background
+ 
+ The sprite sheet for the bullets is developed by puremrz on shrinemaiden.org for other creators to use
+ https://www.shrinemaiden.org/forum/index.php?topic=1525.0
+ */
 PImage background1;
 PImage background2;
 PImage reimusprite;
@@ -139,8 +139,7 @@ void draw() {
   }
   if (mode==GAMEOVER) {
     drawGameOver();
-  } 
-  else if (mode==PAUSE) {
+  } else if (mode==PAUSE) {
     drawPause();
   } else {
     //println("Logic Error");   //informs if there is a mistake in game mode

@@ -19,7 +19,7 @@ class Particles extends GameObject {
   void act() {
     x=x+dx;
     y=y+dy;
-    hp=hp-4;       //ensures particles actually "die" and vanish so as to not slow down the game. 
+    hp=hp-4;       //ensures particles actually "die" and vanish so as to not slow down the game.
   }
 
   boolean dead() {

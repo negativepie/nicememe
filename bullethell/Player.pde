@@ -20,7 +20,7 @@ class Player extends GameObject {
     copy(reimusprite, 0, 0, 60, 64, (int)x-reimuwidth/2, (int)y-reimuheight/2, reimuwidth, reimuheight);
     fill(255);
     if (shiftkey==true) {
-      ellipse(x, y, objwidth, objheight);
+      ellipse(x, y, objwidth, objheight); //player hitbox visual when shift is held
     }
   }
 

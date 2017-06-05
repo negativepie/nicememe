@@ -1,10 +1,10 @@
 /*
 This is the Enemy class, contains input parameters for initial x,y,dx,dy values as well as behaviour which result in various movement patterns,
-bullet time which determines the standard time interval for which a new bullet may be spawned and is input into the 'if statements' and functions inside them which govern bullet spawning 
-for a specific enemy. This, as well as attaching the bullet spawning partially to the Enemy class allows initial bullet positions to be tied to enemy positions.
+ bullet time which determines the standard time interval for which a new bullet may be spawned and is input into the 'if statements' and functions inside them which govern bullet spawning 
+ for a specific enemy. This, as well as attaching the bullet spawning partially to the Enemy class allows initial bullet positions to be tied to enemy positions.
  */
- 
- //Test Cases
+
+//Test Cases
 //When enemy pattern is delta, enemy will move in described delta function
 //If enemy pattern is not delta, enemy will not move in that predetermined pattern
 //When enemy pattern is gausso, enemy will move in described gausso function
@@ -44,7 +44,7 @@ class Enemy extends GameObject {
 
   /*
   The enemy sprites are displayed here, the sprites used are dependent on the bullet type so that only one enemy class needs to be used with the exception of the boss which exhibits slightly more complex behaviour and requires its own class.
-  */
+   */
   void show() {
     if (shot==spray) {
       copy(enemy3, 0, 0, 36, 30, (int)(x-objwidth/2), (int)(y-objheight/2), (int)objwidth, (int)objheight);
@@ -65,8 +65,8 @@ class Enemy extends GameObject {
 
   /*
   Within the act function, the movement patterns and bullet patterns for bullets which are spawned at the enemy positions are present,
-  the pattern produced is goverened by 'if statements' which produce required motion and bullet patterns depending on input parameters
-  */
+   the pattern produced is goverened by 'if statements' which produce required motion and bullet patterns depending on input parameters
+   */
   void act() {
     if (mode==delta) {
       x=x+dx;
@@ -117,9 +117,9 @@ class Enemy extends GameObject {
 
   /*
   Below is the collision check function which checks if the current object has collided into another. An index is defined and incremented upon, checking if every other object that is a playerbullet
-  triggers the collisiondetect function given the input parameters. If such is the case then the enemy loses one hp and the object which collided with the enemy loses its hp (so that the player bullet 
-  doesn't continually hit the enemy),then particles are spawned where the bullet hit. The necessary parameters for the tempobject are pulled and used.
-  */
+   triggers the collisiondetect function given the input parameters. If such is the case then the enemy loses one hp and the object which collided with the enemy loses its hp (so that the player bullet 
+   doesn't continually hit the enemy),then particles are spawned where the bullet hit. The necessary parameters for the tempobject are pulled and used.
+   */
 
   void collisioncheck() {
     int index=0;

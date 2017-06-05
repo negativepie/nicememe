@@ -1,26 +1,26 @@
 /*
 Test Cases 
-When the frame reaches 1000, a new enemy pattern will be produced (delta) 
-If the frame does not reach 1000, the enemy pattern will not be produced as delta 
-When the frame reaches 1500, a new enemy pattern will be produced (guasso) 
-If the frame does not reach 1500, the enemy pattern will not be produced as guasso 
-When the frame reaches 2000, a new enemy pattern will be produced (delta) 
-If the frame does not reach 2000, the enemy pattern will not be produced as delta 
-When the frame reaches 2500, a new enemy pattern will be produced (delta & guass2) 
-If the frame does not reach 2500, the enemy pattern will not be produced as delta & guass2 
-When the frame reaches 3000, a new enemy pattern will be produced (sin) 
-If the frame does not reach 3000, the enemy pattern will not be produced as sin 
-When the frame reaches 4700, a new enemy pattern will be produced (guass & guassb) 
-If the frame does not reach 4700, the enemy pattern will not be produced as guass & guassb 
-When the frame reaches 5500, a new enemy pattern will be produced (spiral) 
-If the frame does not reach 5500, the enemy pattern will not be produced as spiral 
-When the frame reaches 6500, a new enemy pattern will be produced (guass2 & guass2b) 
-If the frame does not reach 6500, the enemy pattern will not be produced as guass2 & guass2b
-*/
+ When the frame reaches 1000, a new enemy pattern will be produced (delta) 
+ If the frame does not reach 1000, the enemy pattern will not be produced as delta 
+ When the frame reaches 1500, a new enemy pattern will be produced (guasso) 
+ If the frame does not reach 1500, the enemy pattern will not be produced as guasso 
+ When the frame reaches 2000, a new enemy pattern will be produced (delta) 
+ If the frame does not reach 2000, the enemy pattern will not be produced as delta 
+ When the frame reaches 2500, a new enemy pattern will be produced (delta & guass2) 
+ If the frame does not reach 2500, the enemy pattern will not be produced as delta & guass2 
+ When the frame reaches 3000, a new enemy pattern will be produced (sin) 
+ If the frame does not reach 3000, the enemy pattern will not be produced as sin 
+ When the frame reaches 4700, a new enemy pattern will be produced (guass & guassb) 
+ If the frame does not reach 4700, the enemy pattern will not be produced as guass & guassb 
+ When the frame reaches 5500, a new enemy pattern will be produced (spiral) 
+ If the frame does not reach 5500, the enemy pattern will not be produced as spiral 
+ When the frame reaches 6500, a new enemy pattern will be produced (guass2 & guass2b) 
+ If the frame does not reach 6500, the enemy pattern will not be produced as guass2 & guass2b
+ */
 
 /*assigning integer values for the different behaviors of the enemies and bullets, this makes the code neater and ensures that the programmer doesn't have to remember which number represents 
-which pattern. 
-*/
+ which pattern. 
+ */
 
 final int delta=1;
 final int gauss=2;
@@ -93,11 +93,11 @@ class Enemyfarm extends GameObject {
     }
   }
 
-/*functions telling the engine to spawn enemies,Parameters describe the x,y coords for spawning, dx dy are the velocities,spawn time determines the nth frame in which something spawns, 
-behavior determines the pattern. bullet time determines how often they shoot and shotmode gives the pattern of the bullets. The use of multiple paramters makes the enemy function very
-flexible. 
-
-*/
+  /*functions telling the engine to spawn enemies,Parameters describe the x,y coords for spawning, dx dy are the velocities,spawn time determines the nth frame in which something spawns, 
+   behavior determines the pattern. bullet time determines how often they shoot and shotmode gives the pattern of the bullets. The use of multiple paramters makes the enemy function very
+   flexible. 
+   
+   */
 
   void SpawnEnemy(float xpos, float ypos, float xvel, float yvel, float spawntime, float bullettime, int behavior, int shotmode) {
     if (RealFrame%spawntime==0) {

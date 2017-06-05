@@ -1,3 +1,28 @@
+//Test Cases
+//When enemy pattern is delta, enemy will move in desribed delta function
+//If enemy pattern is not delta, enemy will not move in that predetermined pattern
+//When enemy pattern is gausso, enemy will move in desribed gausso function
+//If enemy pattern is not gausso, enemy will not move in that predetermined pattern
+//When enemy pattern is gauss, enemy will move in desribed gauss function
+//If enemy pattern is not gauss, enemy will not move in that predetermined pattern
+//When enemy pattern is gaussb, enemy will move in desribed gaussb function
+//If enemy pattern is not gaussb, enemy will not move in that predetermined pattern
+//When enemy pattern is gauss2, enemy will move in desribed gauss2 function
+//If enemy pattern is not gauss2, enemy will not move in that predetermined pattern
+//When enemy pattern is gauss2b, enemy will move in desribed gauss2b function
+//If enemy pattern is not gauss2b, enemy will not move in that predetermined pattern
+//When enemy pattern is sin, enemy will move in desribed sin function
+//If enemy pattern is not sin, enemy will not move in that predetermined pattern
+//When enemy pattern is spiral, enemy will move in desribed spiral function
+//If enemy pattern is not spiral, enemy will not move in that predetermined pattern
+
+//When player bullet follows path and reaches enemy hitbox, then enemy hp is reduced by one
+//When player bullet hits enemy hibox, particles will be emited from the enemy in random directions
+//If the player bullet does not arrive and hit the enemy hitbox, the enemy hp will remain the same
+//If the player bullet does not hit enemy hitbox, no particles will emit from the enemy 
+
+
+
 //define the enemy function, giving positions,velocities and hp
 
 class Enemy extends GameObject{
@@ -7,8 +32,8 @@ class Enemy extends GameObject{
   dx=xvel;
   dy=yvel;
   hp=10;
-  objwidth=40;
-  objheight=40;
+  objwidth=50;
+  objheight=50;
   mode=behavior;
   shot=shotmode;
   time=bullettime;
@@ -16,22 +41,8 @@ class Enemy extends GameObject{
  
  //adding in visual of enemy
  void show(){
-   if(shot==spray){
-   copy(enemy3,0,0,36,30,(int)(x-objwidth/2),(int)(y-objheight/2),(int)objwidth,(int)objheight);
-   }
-   if(shot==track){
-   copy(enemy5,0,0,52,61,(int)(x-objwidth/2),(int)(y-objheight/2),(int)objwidth,(int)objheight);
-   }
-   if(shot==down){
-   copy(enemy4,0,0,40,52,(int)(x-objwidth/2),(int)(y-objheight/2),(int)objwidth,(int)objheight);
-   }
-   if(shot==circle){
-   copy(enemy2,0,0,46,47,(int)(x-objwidth/2),(int)(y-objheight/2),(int)objwidth,(int)objheight);
-   }
-   if(shot==circlerepeat){
-   copy(enemy1,0,0,58,50,(int)(x-objwidth/2),(int)(y-objheight/2),(int)objwidth,(int)objheight);
-   }
-   
+   fill(255,0,0);
+   rect(x,y,objwidth,objheight);
  }
  
  //defining the various patterns that the enemies may move by
@@ -44,23 +55,23 @@ class Enemy extends GameObject{
    }
    if(mode==gausso){
      x=x+dx+random(-3,3);
-     y=Gauss(300,57,150,x);
+     y=Gauss(300,57,150,x,y);
    }
    if(mode==gauss){
      x=x+dx;
-     y=Gauss(300,57,150,x-180);
+     y=Gauss(300,57,150,x-180,y);
    }
    if(mode==gaussb){
      x=x+dx;
-      y=Gauss(300,57,150,x-500);
+      y=Gauss(300,57,150,x-500,y);
    }
    if(mode==gauss2){
      x=x+dx;
-     y=Gauss(500,100,200,x)+dy;
+     y=Gauss(500,100,200,x,y)+dy;
    }
    if(mode==gauss2b){
      x=x+dx;
-     y=Gauss(500,100,200,x-500)+dy;
+     y=Gauss(500,100,200,x-500,y)+dy;
    }
    if(mode==sin){
      x=x+dx;
@@ -72,20 +83,20 @@ class Enemy extends GameObject{
      theta=theta+0.025;
    }
     collisioncheck();
- if(shot==spray){
+ if(shot==1){
    Spray(x+random(-3,3),y+random(-3,3),3,4,time,2,0);
    }
- if(shot==track){
-   Track(x,y,3,4,time,3,0);
+ if(shot==2){
+   Track(x,y,3,4,time,2,0);
    }
- if(shot==down){
+ if(shot==3){
    Down(x,y,3,4,time,2,0);
    Down(x+20+(random(0,5)),y-random(0,20),3,4,time,2,0);
  }
- if(shot==circle){
+ if(shot==4){
    Circle(x,y,3,4,time,60,0); 
  }
- if(shot==circlerepeat){
+ if(shot==5){
    CircleRepeat(x,y,3,4,time,60,0);
  }
  }

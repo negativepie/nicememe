@@ -1,5 +1,10 @@
-//death animation
+//Test Cases
+//When player is struck by an enemy bullet, the bullet will emit two particles
+//If two particles are emited, the particles will move in random directions with a random speed
+//If two particles are emited, gradually the particles will disappear over a short duration of time
+//If the player is not struck by an enemy bullet, no particles will be emited
 
+//death animation
 class Particles extends GameObject{
  Particles(float Xstart, float Ystart){
    x=Xstart;

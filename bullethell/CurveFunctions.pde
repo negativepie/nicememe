@@ -1,50 +1,13 @@
-//Gaussian Function
-
 /*
-int a=2;
-int b=2;
-int c=2;
-/*
-/*void setup(){
-  Gauss(1,1,1,3);
-  println(Gauss(1,1,1,3)); got 1. 
-  
-}
-*/
+These are the Curve Functions, these functions give more interesting patterns for enemies than straight lines.
+ y is updated relative to x and used in the Enemy class to continuously update the y position for some given x, similar to a mathematical graph.
+ Mathematical functions are used in order to do this, parameters for constants of the functions are input within the Enemy function depending on the type of
+ behaviour required
+ */
 
-float Gauss(int a,int b,int c,float x){
+//This is the gauss function, it draws a Gaussian curve for the path of enemies to follow
+float Gauss(int a, int b, int c, float x) {
   float y;
-  y=a*exp(-pow((x-b),2)/(2*pow(c,2)));
+  y=a*exp(-pow((x-b), 2)/(2*pow(c, 2)));
   return y;
 }
-
-//Sawtooth function
-
-float Sawtooth(float t){
-  float y;
-  y=t-floor(t);
-  return y;
-}
-
-//spiral functions
-
-float spiralx(float theta,float theta_vel,float theta_acc){
-  float r=100;
-  float x=r*cos(theta);
-  theta_vel=theta_vel+ theta_acc;
-  theta =theta+ theta_vel;
-  return x;
-}
-
-float spiraly(float theta,float theta_vel,float theta_acc){
-  float r=100;
-  float y=r*cos(theta);
-  theta_vel=theta_vel+ theta_acc;
-  theta =theta+ theta_vel;
-  return y;
-}
-
-float theta = 0.5;
-float theta_vel = 0;
-float theta_acc = 0.000001;
-float r=270;

@@ -64,8 +64,8 @@ void draw() {
     imgy=0;
   }
   imgy=imgy+scroll;
-  if(RealFrame>=4180&&RealFrame<4191){
-  scroll--;  
+  if (RealFrame>=4180&&RealFrame<4191) {
+    scroll--;
   }
 
   //gamescreens

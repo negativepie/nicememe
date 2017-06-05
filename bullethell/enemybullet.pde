@@ -9,6 +9,7 @@ class enemybullet extends Bullet{
       objheight=7;
     }
     
+    //draw enemy bullets as blue circles
   void show(){
   fill(0,50,255);
   ellipse(x,y,objwidth+3,objheight+3);

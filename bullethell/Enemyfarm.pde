@@ -26,16 +26,17 @@ class Enemyfarm extends GameObject{
 
  void show(){
   fill(100);
-  ellipse(x,y,50,50);
+  ellipse(x,y,50,50);                       //used to test that the enemy farm was actually drawn 
  }
  
  //Spawn patterns, RealFrame is a proxy measurement of time used so that the game does not run while paused or during the intro screen.
- //Enemies are spawned using the SpawnEnemy function which provide details for spawning and give information for movement patterns and for the bullet patterns that enemies fire.
+ //Enemies are spawned using the SpawnEnemy function which provide details for spawning and give information for movement patterns and for the bullet patterns that enemies fire. 
  //SpawnBoss spawns the boss using the same parameters
- 
+
+ //spawn patterns are as follows
  void act(){
    if(RealFrame==4200){
-   SpawnBoss(300,-30,2,2,0,50,1,5);
+   SpawnBoss(300,-30,2,2,0,50,5);                                                     
    }
    else if(RealFrame<1000){
      for(int i=0;i<4;i++){
@@ -77,7 +78,8 @@ class Enemyfarm extends GameObject{
    }
  }
 
-//function for spawning enemies
+//functions for spawning enemies,Parameters describe the x,y coords for spawning, dx dy are the velocities,spawn time determines the nth frame in which something spawns, 
+//behavior determines the pattern. bullet time determines how often they shoot and shotmode gives the pattern of the bullets
 
  void SpawnEnemy(float xpos,float ypos,float xvel,float yvel,float spawntime,float bullettime, int behavior,int shotmode){
   if(RealFrame%spawntime==0){
@@ -85,7 +87,7 @@ class Enemyfarm extends GameObject{
     }
  }  
  
- void SpawnBoss(float xpos,float ypos,float xvel,float yvel,float spawntime,float bullettime,int behavior,int shotmode){
+ void SpawnBoss(float xpos,float ypos,float xvel,float yvel,float bullettime,int behavior,int shotmode){
   engine.add(new Boss(xpos,ypos,xvel,yvel,behavior,bullettime,shotmode)); 
  }
  

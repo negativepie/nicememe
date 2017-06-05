@@ -1,5 +1,4 @@
-//death animation
-
+//death animation, parameters would be the position where anything dies (Xstart,Ystart), the velocities of the particles are randomized to give an explosion effect
 class Particles extends GameObject{
  Particles(float Xstart, float Ystart){
    x=Xstart;
@@ -16,10 +15,11 @@ class Particles extends GameObject{
   rect(x,y,objwidth,objheight); 
  }
  
+ 
  void act(){
   x=x+dx;
   y=y+dy;
-  hp=hp-4;
+  hp=hp-4;   //ensures particles actually "die" and vanish so as to not slow down the game 
  }
  
  boolean dead(){

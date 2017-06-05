@@ -7,13 +7,13 @@ final int PLAY=2;
 final int GAMEOVER=3;
 final int PAUSE=4;
 
-
+//draws the intro screen
 void drawIntro(){
   background(255);
   fill(50);
   textSize(20);
   text("Bullet Hell",width/2-60,height/2);
-  text("Press s key to start",width/2-125,height/2+50);
+  text("Press s key to start",width/2-105,height/2+50);
 }
 
 /*

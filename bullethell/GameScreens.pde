@@ -8,6 +8,7 @@ final int GAMEOVER=3;
 final int PAUSE=4;
 
 
+//draws the intro screen
 void drawIntro() {
   background(255);
   fill(50);
@@ -40,4 +41,5 @@ void drawPause() {
   fill(50);
   textSize(20);
   text("PAUSED", width/2-60, height/2);
+}
 }

@@ -1,4 +1,4 @@
-//defines the player class
+//defines the player class, hitbox (8x8) and hp defined
 
 class Player extends GameObject {
 

@@ -67,15 +67,19 @@ class Enemyfarm extends GameObject {
     } else if (RealFrame<4000) {
       SpawnEnemy(-30, 300, 10, 0, 10, 60, gauss2, 2);
       SpawnEnemy(840, 840, -10, 0, 20, 120, gauss2b, 5);
+
     }
   }
+  
+//functions for spawning enemies,Parameters describe the x,y coords for spawning, dx dy are the velocities,spawn time determines the nth frame in which something spawns, 
+//behavior determines the pattern. bullet time determines how often they shoot and shotmode gives the pattern of the bullets
 
-  //function for spawning enemies
 
   void SpawnEnemy(float xpos, float ypos, float xvel, float yvel, float spawntime, float bullettime, int behavior, int shotmode) {
     if (RealFrame%spawntime==0) {
       engine.add(new Enemy(xpos, ypos, xvel, yvel, behavior, bullettime, shotmode));
     }
+
   }  
 
   void SpawnBoss(float xpos, float ypos, float xvel, float yvel, float spawntime, float bullettime, int behavior, int shotmode) {

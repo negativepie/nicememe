@@ -13,4 +13,4 @@ class enemybullet extends Bullet {
     fill(0, 50, 255);
     ellipse(x, y, objwidth+3, objheight+3);
   }
-}
+  }

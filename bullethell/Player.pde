@@ -1,5 +1,16 @@
-//defines the player class
+//Test Cases
+//If player reaches the left most boarder,the player be prevented from moving any further in the left direction
+//If player reaches the right most boarder, the player be prevernted from moving any further in the right direction
+//If player reaches the upward most boarder, the player will be prevented from moving any further in the upward direction
+//If player reaches the bottom most boarder, the player will be prevented from moving any further in the downward direction
 
+//When Shift key is pressed and held, a hitbox will be drawn on the player
+//If the Shift key is not pressed, no hitbox will be drawn on the player
+
+//When enemy bullet hits players hitbox, player loses 1 hp from its original hp
+//If the enemy bullet does not touch players hitbox, player does not lose any hp
+
+//defines the player class
 class Player extends GameObject{
   
   Player(){
@@ -15,9 +26,12 @@ class Player extends GameObject{
   //draws the player and the hitbox when the shiftkey is held
   
   void show(){
-   int reimuwidth=50;
-   int reimuheight=64;
-   copy(reimusprite,0,0,60,64,(int)x-reimuwidth/2,(int)y-reimuheight/2,reimuwidth,reimuheight);
+   if(leftkey==false){
+   copy(reimusprite,0,0,35,50,(int)x-17,(int)y-30,35,60);
+   }
+   if(leftkey==true){
+   copy(reimusprite,30,100,35,50,(int)x-15,(int)y-30,35,60);
+   }
    fill(255);
    if(shiftkey==true){
    ellipse(x,y,objwidth,objheight);

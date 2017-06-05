@@ -1,4 +1,4 @@
-//Spray functions, these determine the pattern of the bullets which are shot by the enemies
+//Spray function
 
 void Spray(float x, float y, float dx, float dy,float bullettime, int n, int behaviour){
   if(RealFrame%bullettime==0){
@@ -40,6 +40,7 @@ void CircleRepeat(float x,float y, float dx, float dy,float bullettime, int n, i
   for(int i=0;i<n;i++){
   if(RealFrame%bullettime==0){
   engine.add(new enemybullet(x,y,dx*cos(THETA),dy*sin(THETA),behaviour));
+  
    }
    THETA=THETA+2*PI/n;
   }

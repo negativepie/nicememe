@@ -1,4 +1,4 @@
-//Spray function
+//Spray functions, these determine the pattern of the bullets which are shot by the enemies
 
 void Spray(float x, float y, float dx, float dy,float bullettime, int n, int behaviour){
   if(RealFrame%bullettime==0){

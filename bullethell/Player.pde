@@ -3,7 +3,7 @@
 class Player extends GameObject{
   
   Player(){
-   hp=9001;
+   hp=1;
    x=width/2;
    y=550;
    dx=0;

@@ -1,3 +1,5 @@
+//Boss class, showing initial positions and velocity. 
+
 class Boss extends Enemy{
  Boss(float Xstart, float Ystart, float xvel, float yvel,int behavior,float bullettime,int shotmode){
    super(Xstart,Ystart,xvel,yvel,behavior,bullettime,shotmode);

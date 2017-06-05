@@ -38,14 +38,14 @@ void draw(){
     GameObject obj=engine.get(index);
     obj.show();
     obj.act();
-    if(mode==PAUSE){
+    if(mode==PAUSE){                                //not drawing when game is paused or in intro
       noLoop();
     }
     if(mode==INTRO){
      noLoop(); 
     }
     if(obj.dead()){
-     engine.remove(index); 
+     engine.remove(index);                         //engine removes dead objects
     }
     index--;
   }
@@ -57,10 +57,10 @@ void draw(){
   
   //gamescreens
   mode=INTRO;
-  if(startkey==true){
+  if(startkey==true){                          //game start
     mode=PLAY;
   }
-  if(reimu.hp<1){
+  if(reimu.hp<1){                              //death screen
     mode=GAMEOVER;
   }
   if(pausekey==true&&!(mode==GAMEOVER)){
@@ -75,7 +75,7 @@ void draw(){
   }
     if (mode==GAMEOVER){
     drawGameOver();
-    if(rebootkey==true){
+    if(mode==GAMEOVER&&rebootkey==true){
      RealFrame=0;
      mode=INTRO;
      drawIntro();
@@ -88,7 +88,7 @@ void draw(){
     println("Logic Error");   //informs if there is a mistake in game mode
   }
     println(RealFrame);      //test case checking that RealFrame is only changing when the game is playing
-     println(rebootkey);
+//     println(rebootkey);
      
      if(mode==PLAY){
 RealFrame=RealFrame+1;
@@ -107,7 +107,7 @@ void keyPressed(){
   if(key=='x'||key=='X')     bombkey=true;
   if(keyCode==SHIFT)         shiftkey=true;
   pausekey=false;
-  if(key=='p'||key=='P'&&pausekey==false){     
+  if(key=='p'||key=='P'&&pausekey==false){                       //ensures that 'p' doesn't have to be held down to be paused.
   pausekey=true;
   }
   else if (key=='p'||key=='P'&&pausekey==true){

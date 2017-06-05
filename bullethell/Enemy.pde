@@ -30,23 +30,23 @@ class Enemy extends GameObject{
    }
    if(mode==gausso){
      x=x+dx+random(-3,3);
-     y=Gauss(300,57,150,x,y);
+     y=Gauss(300,57,150,x);
    }
    if(mode==gauss){
      x=x+dx;
-     y=Gauss(300,57,150,x-180,y);
+     y=Gauss(300,57,150,x-180);
    }
    if(mode==gaussb){
      x=x+dx;
-      y=Gauss(300,57,150,x-500,y);
+      y=Gauss(300,57,150,x-500);
    }
    if(mode==gauss2){
      x=x+dx;
-     y=Gauss(500,100,200,x,y)+dy;
+     y=Gauss(500,100,200,x)+dy;
    }
    if(mode==gauss2b){
      x=x+dx;
-     y=Gauss(500,100,200,x-500,y)+dy;
+     y=Gauss(500,100,200,x-500)+dy;
    }
    if(mode==sin){
      x=x+dx;
